@@ -1,33 +1,35 @@
-Objective:
+##Objective
 ---------
 The following are the objective of this test 
-- to measure the performance of the application jpetstore by conducting load test
+- to measure the performance of the application Jpetstore by conducting load test
 - The response time of the test should be within acceptable limits (assume to be 3 seconds for each page load)
 - Identify any performance issues while running and analyzing the test
 
-Scope:
------
+##Scope
+------
 The scope of the test is to conduct load testing on the Jpetstore application and measure its performance. 
 
 As the servers in the application are not accessible, the metrics of the web server, application server and db server for Jpetstore application are not monitored during the test
 
-Test Scenarios:
+##Test Scenarios
 --------------
-Scenario 1: Buy Fish
-Scenario 2: Buy Cats
-Scenario 3: Buy Reptiles
-Scenario 4: Buy Birds
-Scenario 5: Buy Dogs
-Scenario 6: Buy two different pets 
-Scenario 7: Search and buy
-Scenario 8: Search and Add to cart
-Scenario 9: Login and Logout
+The following scenarios are identified as important workflows to be considered for the performance testing of the Jpetstore application
+| No | Scenario |
+| --- | --- |
+| 1 | Buy Fish |
+| 2 | Buy Cats |
+| 3 | Buy Reptiles |
+| 4 | Buy Birds |
+| 5 | Buy Dogs |
+| 6 | Buy two different pets |
+| 7 | Search and buy |
+| 8 | Search and Add to cart |
+| 9 | Login and Logout |
 
 
 The following are the detailed steps in each scenarios
-NOTE: After each page load, the content on the page need to be verified
 
-Scenario 1: Buy Fish
+**Scenario 1**: Buy Fish
  a) Launch the application
  b) Enter the store
  c) Click Signin link
@@ -40,7 +42,7 @@ Scenario 1: Buy Fish
  k) Confirm the order
  l) In the confirmation page, click Sign out
 
-Scenario 2: Buy Cats
+**Scenario 2**: Buy Cats
  a) Launch the application
  b) Enter the store
  c) Click Signin
@@ -53,7 +55,7 @@ Scenario 2: Buy Cats
  k) Confirm the order
  l) In the confirmation page, click Signout
 
-Scenario 3: Buy Reptiles
+**Scenario 3**: Buy Reptiles
  a) Launch the application
  b) Enter the store
  c) Click Signin
@@ -66,7 +68,7 @@ Scenario 3: Buy Reptiles
  k) Confirm the order
  l) In the confirmation page, click Signout
 
-Scenario 4: Buy Birds
+**Scenario 4**: Buy Birds
  a) Launch the application
  b) Enter the store
  c) Click Signin
@@ -79,7 +81,7 @@ Scenario 4: Buy Birds
  k) Confirm the order
  l) In the confirmation page, click Signout
 
-Scenario 5: Buy Dogs
+**Scenario 5**: Buy Dogs
  a) Launch the application
  b) Enter the store
  c) Click Signin
@@ -92,7 +94,7 @@ Scenario 5: Buy Dogs
  k) Confirm the order
  l) In the confirmation page, click Signout
 
-Scenario 6: Buy two different pets
+**Scenario 6**: Buy two different pets
  a) Launch the application
  b) Enter the store
  c) Click Signin
@@ -109,7 +111,7 @@ Scenario 6: Buy two different pets
  n) Confirm the order
  o) In the confirmation page, click Signout
 
-Scenario 7: Search and Buy
+**Scenario 7**: Search and Buy
  a) Launch the application
  b) Enter the store
  c) Click Signin
@@ -122,7 +124,7 @@ Scenario 7: Search and Buy
  k) Confirm the order
  l) In the confirmation page, click Signout
 
-Scenario 8: Search and Add to cart
+**Scenario 8**: Search and Add to cart
  a) Launch the application
  b) Enter the store
  c) Click Signin
@@ -132,42 +134,46 @@ Scenario 8: Search and Add to cart
  g) select the item from product and click AddToCart
  l) In the confirmation page, click Signout
 
-Scenario 9: Login and Logout
+**Scenario 9**: Login and Logout
  a) Launch the application
  b) Enter the store
  c) Click Signin
  d) Enter username/password and click Login
  e) click Signout
 
-Test approach:
+NOTE: After each page load, the page need to be asserted in the Jmeter script
+
+##Test approach
 -------------
-Each Scenario will take 60 seconds to ramp up and maintain a steady state for 3600 seconds (1 hour) and 60 seconds to ramp down
+Each Scenario will take 60 seconds to ramp up, maintain a steady state for 3600 seconds (1 hour) and 60 seconds to ramp down
 
 Total of 30 users are considered for the testing
 
-The following number of users are considered application based on the assumptions 
-Scenario 1: Buy Fish - 8 users (Assumption: Low cost, easy and impulsive buys)
-Scenario 2: Buy Cats - 4 users (Assumption: Popular among apartment owners)
-Scenario 3: Buy Reptiles - 1 user (Assumption: It is a speciality hobby)
-Scenario 4: Buy Birds - 2 users (Assumption: Low interest) 
-Scenario 5: Buy Dogs - 5 users (Assumption: Popular among pet owners who can afford)
-Scenario 6: Buy two different pet - 6 (Assumption: multiple pet buyers)
-Scenario 7: Search and buy - 2 (Assumption: very few users will search for a particular pet and buy)
-Scenario 8: Search and Add to cart - 1 (Assumption: some users search and leave the cart before buying) 
-Scenario 9: Login and Logout - 1 (Assumption: Login,look at the home page and Logout directly)
+The following number of users are used for perfomance testing of each scenarios
+| Scenario No | Scenario Name | Users | Assumption |
+| --- | --- | ---  | ---|
+| 1 | Buy Fish | 8 | Low cost, easy and impulsive buyers |
+| 2 | Buy Cats | 4 | Popular among apartment owners |
+| 3 | Buy Reptiles | 1 | Speciality hobby |
+| 4 | Buy Birds | 2 | Low or Moderate interest for this pets |
+| 5 | Buy Dogs | 5 | Popular among pet owners who can afford |
+| 6 | Buy two different pet | 6 | Multiple pet buyers |
+| 7 | Search and buy | 2 | Very few users will search for a particular pet to buy |
+| 8 | Search and Add to cart | 1 | Some users search and leave the cart before buying |
+| 9 | Login and Logout | 1 | Login,look at the home page and Logout without browsing other pages|
 
-Test Data:
+##Test Data
 ---------
 The following are the test data used for the test
-a) 30 unique set of users created and shared among all the scenarios
-b) ProductID for Fish, Cat, Reptiles, Birds and Dogs
-c) ItemsID for sub categories in the product
+a) 30 unique set of users created and shared among all test scenarios
+b) Scenarios use ProductID for Fish, Cat, Reptiles, Birds and Dogs for selecting the product
+c) Scenarios use ItemsID for sub categories of pets in the product
 d) Quantity of the Item in the card will be updated randomly between 1 to 3 while buying pets
-e) Name of the items in all the products will be used for search and add scenario
+e) Name of the items in all the products will be used for search and adding to cart step in scenarios
 
-Metrics to be Monitored:
+##Metrics to be Monitored
 ------------------------
 a) Throughput
-b) response time (Min/Max/Avg)
-c) 95% response time percentiles
+b) Response time (Min/Max/Avg)
+c) 90%, 95% and 99% response time percentiles
 d) Error rate
