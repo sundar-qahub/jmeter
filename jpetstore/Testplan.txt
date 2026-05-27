@@ -1,0 +1,173 @@
+Objective:
+---------
+The following are the objective of this test 
+- to measure the performance of the application jpetstore by conducting load test
+- The response time of the test should be within acceptable limits (assume to be 3 seconds for each page load)
+- Identify any performance issues while running and analyzing the test
+
+Scope:
+-----
+The scope of the test is to conduct load testing on the Jpetstore application and measure its performance. 
+
+As the servers in the application are not accessible, the metrics of the web server, application server and db server for Jpetstore application are not monitored during the test
+
+Test Scenarios:
+--------------
+Scenario 1: Buy Fish
+Scenario 2: Buy Cats
+Scenario 3: Buy Reptiles
+Scenario 4: Buy Birds
+Scenario 5: Buy Dogs
+Scenario 6: Buy two different pets 
+Scenario 7: Search and buy
+Scenario 8: Search and Add to cart
+Scenario 9: Login and Logout
+
+
+The following are the detailed steps in each scenarios
+NOTE: After each page load, the content on the page need to be verified
+
+Scenario 1: Buy Fish
+ a) Launch the application
+ b) Enter the store
+ c) Click Signin link
+ d) Enter username/password and click Login
+ e) Click Fish
+ f) Select one of the fish product
+ g) click AddToCart
+ h) Update Quantity at random and Proceed to Checkout
+ i) Enter the payment details and click Continue
+ k) Confirm the order
+ l) In the confirmation page, click Sign out
+
+Scenario 2: Buy Cats
+ a) Launch the application
+ b) Enter the store
+ c) Click Signin
+ d) Enter username/password and click Login
+ e) Click Cats
+ f) Select one of the cat product
+ g) click AddToCart
+ h) Update Quantity at random and Proceed to Checkout
+ i) Enter the payment details and click Continue
+ k) Confirm the order
+ l) In the confirmation page, click Signout
+
+Scenario 3: Buy Reptiles
+ a) Launch the application
+ b) Enter the store
+ c) Click Signin
+ d) Enter username/password and click Login
+ e) Click Reptiles
+ f) Select one of the reptile product
+ g) click AddToCart
+ h) Update Quantity at random and Proceed to Checkout
+ i) Enter the payment details and click Continue
+ k) Confirm the order
+ l) In the confirmation page, click Signout
+
+Scenario 4: Buy Birds
+ a) Launch the application
+ b) Enter the store
+ c) Click Signin
+ d) Enter username/password and click Login
+ e) Click Birds
+ f) Select one of the bird product
+ g) click AddToCart
+ h) Update Quantity at random and Proceed to Checkout
+ i) Enter the payment details and click Continue
+ k) Confirm the order
+ l) In the confirmation page, click Signout
+
+Scenario 5: Buy Dogs
+ a) Launch the application
+ b) Enter the store
+ c) Click Signin
+ d) Enter username/password and click Login
+ e) Click Dogs
+ f) Select one of the dog product
+ g) click AddToCart
+ h) Update Quantity at random and Proceed to Checkout
+ i) Enter the payment details and click Continue
+ k) Confirm the order
+ l) In the confirmation page, click Signout
+
+Scenario 6: Buy two different pets
+ a) Launch the application
+ b) Enter the store
+ c) Click Signin
+ d) Enter username/password and click Login
+ e) Click one of the pet
+ f) Select one of the product
+ g) click AddToCart
+ h) Update Quantity at random and Proceed to Checkout
+ i) Click "Return to main menu"
+ j) Select different pet
+ k) Select one of the product
+ l) click AddToCart
+ m) Enter the payment details and click Continue
+ n) Confirm the order
+ o) In the confirmation page, click Signout
+
+Scenario 7: Search and Buy
+ a) Launch the application
+ b) Enter the store
+ c) Click Signin
+ d) Enter username/password and click Login
+ e) Enter the product name in the Search box
+ f) Click on the product
+ g) select the item from product and click AddToCart
+ h) Update Quantity at random and Proceed to Checkout
+ i) Enter the payment details and click Continue
+ k) Confirm the order
+ l) In the confirmation page, click Signout
+
+Scenario 8: Search and Add to cart
+ a) Launch the application
+ b) Enter the store
+ c) Click Signin
+ d) Enter username/password and click Login
+ e) Enter the product name in the Search box
+ f) Click on the product
+ g) select the item from product and click AddToCart
+ l) In the confirmation page, click Signout
+
+Scenario 9: Login and Logout
+ a) Launch the application
+ b) Enter the store
+ c) Click Signin
+ d) Enter username/password and click Login
+ e) click Signout
+
+Test approach:
+-------------
+Each Scenario will take 60 seconds to ramp up and maintain a steady state for 3600 seconds (1 hour) and 60 seconds to ramp down
+
+Total of 30 users are considered for the testing
+
+The following number of users are considered application based on the assumptions 
+Scenario 1: Buy Fish - 8 users (Assumption: Low cost, easy and impulsive buys)
+Scenario 2: Buy Cats - 4 users (Assumption: Popular among apartment owners)
+Scenario 3: Buy Reptiles - 1 user (Assumption: It is a speciality hobby)
+Scenario 4: Buy Birds - 2 users (Assumption: Low interest) 
+Scenario 5: Buy Dogs - 5 users (Assumption: Popular among pet owners who can afford)
+Scenario 6: Buy two different pet - 6 (Assumption: multiple pet buyers)
+Scenario 7: Search and buy - 2 (Assumption: very few users will search for a particular pet and buy)
+Scenario 8: Search and Add to cart - 1 (Assumption: some users search and leave the cart before buying) 
+Scenario 9: Login and Logout - 1 (Assumption: Login,look at the home page and Logout directly)
+
+Test Data:
+---------
+The following are the test data used for the test
+a) 30 unique set of users created and shared among all the scenarios
+b) ProductID for Fish, Cat, Reptiles, Birds and Dogs
+c) ItemsID for sub categories in the product
+d) Quantity of the Item in the card will be updated randomly between 1 to 3 while buying pets
+e) Name of the items in all the products will be used for search and add scenario
+
+Metrics to be Monitored:
+------------------------
+a) Throughput
+b) response time (Min/Max/Avg)
+c) 95% response time percentiles
+d) Error rate
