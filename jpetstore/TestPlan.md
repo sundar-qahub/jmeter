@@ -120,9 +120,11 @@ The following are the detailed steps in each scenarios
  j) Select a different pet
  k) Select one product from selected pet
  l) Click "Add to Cart" on one item
- m) Enter the payment details and click "Continue" button
- n) Confirm the order by clicking "Confirm" button
- o) In the confirmation page, click "Sign Out" link
+ m) Update random quantity for the second pet item and click "Update Cart" button
+ n) Click "Proceed to Checkout" button
+ o) Enter the payment details and click "Continue" button
+ p) Confirm the order by clicking "Confirm" button
+ q) In the confirmation page, click "Sign Out" link
 ```
 
 **Scenario 7**: Search and Buy
@@ -166,7 +168,7 @@ The following are the detailed steps in each scenarios
 **NOTE**: After each page load, the page need to be asserted in the Jmeter script
 
 ## Test approach
-Each Scenario will take 60 seconds to ramp up, maintain a steady state for 3600 seconds (1 hour) and 60 seconds to ramp down
+Each Scenario will take 60 seconds to ramp up and maintain a steady state for 3600 seconds (1 hour)
 
 Total of 30 users are considered for the testing
 
@@ -181,7 +183,7 @@ The following is the workload distrubtion considered for the scenarios
 | 6 | Buy two different pet | 20% | Multiple pet buyers |
 | 7 | Search and buy | 6.7% | Very few users will search for a particular pet to buy |
 | 8 | Search and Add to cart | 3.3% | Some users search and leave the cart before buying |
-| 9 | Login and Logout | 3.3% | Login,look at the home page and Logout without browsing other pages|
+| 9 | Login and Logout | 3.3% | Login,look at the home page and Logout without browsing other pages |
 
 ## Workload Model
 The workload modelling of a scenario should satisfy Little's Law
@@ -191,19 +193,21 @@ Number of Users = (scenario processed)/sec * (Response time + think time + pacin
 
 Let's assume petstore process a scenario every 2 seconds (i.e., scenarios processed/sec is 0.5)
 
+A buffer of 5% is adjusted to pacing, so that the test run will include real time errors, Network/script overhead and/or higher latency to achieve targeti TPS
+
 The following table list the distribution of users and iteration time of each scenario's
 
 | Scenario No | Scenario Name | Percentage of total load | Users | Scenario Processed/sec | Response Time + Think time + Pacing |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Buy Fish | 26.67% | 8 | 0.13 | 61 | 
-| 2 | Buy Cats | 13.3% | 4 | 0.067 | 59 |
-| 3 | Buy Reptiles | 3.3% | 1 | 0.017 | 58 |
-| 4 | Buy Birds | 6.7% | 2 | 0.034 | 58 |
-| 5 | Buy Dogs | 16.7%| 5 | 0.084  i 59 |
-| 6 | Buy two different pet | 20% | 6 | 0.1 | 60 |
-| 7 | Search and buy | 6.7% | 2 | 0.034 | 58 |
-| 8 | Search and Add to cart | 3.3%| 1 | 0.017 | 58 |
-| 9 | Login and Logout | 3.3% | 1 | 0.017 | 58 |
+| 1 | Buy Fish | 26.67% | 8 | 0.13 | 61 (responsetime + Thinktime = 53, pacing = 5, Buffer = 3) | 
+| 2 | Buy Cats | 13.3% | 4 | 0.067 | 59 (responsetime + Thinktime = 52, pacing = 4, Buffer = 3) |
+| 3 | Buy Reptiles | 3.3% | 1 | 0.017 | 58 (responsetime + Thinktie = 53, pacing = 2, Buffer = 3) |
+| 4 | Buy Birds | 6.7% | 2 | 0.034 | 58 (responsetime + thinktime = 52, pacing = 3, Buffer = 3) |
+| 5 | Buy Dogs | 16.7%| 5 | 0.084 | 59 (responsetime + thinktime = 52, pacing = 4, Buffer= 3) |
+| 6 | Buy two different pet | 20% | 6 | 0.1 | 60 (responsetime + thinktime = 56, pacing = 1, Buffer = 3) |
+| 7 | Search and buy | 6.7% | 2 | 0.034 | 58 (responsetime + thinktime = 53, pacing = 2, Buffer = 3) |
+| 8 | Search and Add to cart | 3.3% | 1 | 0.017 | 58 (responsetime + thinktime = 53, pacing = 2, Buffer = 3) |
+| 9 | Login and Logout | 3.3% | 1 | 0.017 | 58 (responsetime + thinktime = 33, packing = 22, Buffer = 3) |
 
 ## Test Data
 The following are the test data used for the test
