@@ -1,11 +1,11 @@
 ## Objective
 The following are the objective of this test 
-- To measure the performance of the application Jpetstore by conducting load test
+- To measure the performance of the application Jpetstore (https://petstore.octoperf.com/) by conducting load test
 - The response time of the test should be within acceptable limits (assume to be 3 seconds for each page load)
 - Identify any performance issues while running and analyzing the test
 
 ## Scope
-The scope of the test include conducting load testing on the Jpetstore application and measure its performance. 
+The scope of the test include conducting load testing on the Jpetstore application (https://petstore.octoperf.com/) and measure its performance. 
 
 As the servers in the application are not accessible, the metrics from web server(s), application server(s) and db server(s) are not monitored during the test
 
