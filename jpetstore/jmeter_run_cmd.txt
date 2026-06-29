@@ -1,0 +1,1 @@
+jmeter -n -t "C:\Users\gauth\jmeter\jpetstore\Script\jpetstore.jmx" -l "C:\Users\gauth\jmeter\jpetstore\Test_results\results.jtl" -e -o "C:\Users\gauth\jmeter\jpetstore\Test_results"
